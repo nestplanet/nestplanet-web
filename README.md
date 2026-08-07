@@ -5,10 +5,11 @@
 ## 구조
 
 ```
-index.html            회사 소개
-style.css             공통 스타일
-doran/privacy.html    도란 개인정보처리방침
-doran/terms.html      도란 이용약관
+index.html                  회사 소개
+style.css                   공통 스타일
+doran/privacy.html          도란 개인정보처리방침
+doran/terms.html            도란 이용약관
+doran/delete-account.html   도란 계정 삭제 요청 (Play 필수)
 ```
 
 정적 HTML입니다. 빌드 과정이 없습니다.
@@ -29,9 +30,18 @@ Vercel에 리포를 연결하면 자동 배포됩니다. Framework Preset은 **O
 
 - `https://nestplanet.app/doran/privacy.html`
 - `https://nestplanet.app/doran/terms.html`
+- `https://nestplanet.app/doran/delete-account.html`
 
 Play Console 앱 콘텐츠와 App Store Connect에 위 주소를 등록합니다.
 앱 안의 "이용약관"·"개인정보처리방침" 행도 이 주소로 연결합니다.
+
+계정 삭제 URL은 Play **데이터 안전** 양식이 별도로 요구하며, 앱 안에 삭제
+기능이 있어도 면제되지 않습니다. Apple은 반대로 **앱 내 삭제**를 요구하므로
+이 페이지만으로는 5.1.1(v)를 충족하지 못합니다.
+
+> ⚠️ `delete-account.html`은 **앱에 삭제 기능이 아직 없다는 전제**로 쓰여
+> 있습니다("현재는 이메일로 요청"). 앱 내 탈퇴가 나가면 1번 절과 그 아래
+> 안내 박스를 함께 고칩니다 — 안 고치면 문서가 거짓이 됩니다.
 
 ## 문서를 고칠 때
 
