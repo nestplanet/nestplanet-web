@@ -7,10 +7,16 @@
 ```
 index.html                  회사 소개
 style.css                   공통 스타일
+doran/index.html            도란 허브 (네 문서로 가는 링크)
+doran/support.html          도란 고객센터 (Apple 1.2 · ASC Support URL)
 doran/privacy.html          도란 개인정보처리방침
 doran/terms.html            도란 이용약관
 doran/delete-account.html   도란 계정 삭제 요청 (Play 필수)
 ```
+
+`doran/index.html`은 소개 페이지가 아니라 **허브**입니다. 만드는 이유는 셋입니다 —
+ASC Support URL을 `/doran/`으로 넣을 가능성, 사람이 URL 끝을 잘라 치는 일,
+그리고 파일 하나 값이라서. 마케팅 페이지가 필요해지면 같은 자리에 살을 붙입니다.
 
 정적 HTML입니다. 빌드 과정이 없습니다.
 
@@ -20,6 +26,10 @@ Vercel에 리포를 연결하면 자동 배포됩니다. Framework Preset은 **O
 빌드 명령과 출력 디렉터리는 비워 둡니다.
 
 도메인 `nestplanet.app`을 Vercel 프로젝트에 연결합니다.
+
+> ⚠️ **`cleanUrls`를 켜지 마세요.** Vercel의 `cleanUrls: true`는 `/x.html`을 `/x`로
+> **308 리다이렉트**합니다 — 스토어에 등록한 URL의 모양이 바뀝니다. `trailingSlash`도
+> 기본값을 유지합니다. 지금은 `vercel.json` 자체가 없고, 그게 의도된 상태입니다.
 
 > ⚠️ DNS를 바꿀 때 Resend 레코드를 지우지 마세요.
 > `send` 서브도메인의 MX·TXT와 `resend._domainkey` TXT는 이메일 발송에
@@ -31,9 +41,25 @@ Vercel에 리포를 연결하면 자동 배포됩니다. Framework Preset은 **O
 - `https://nestplanet.app/doran/privacy.html`
 - `https://nestplanet.app/doran/terms.html`
 - `https://nestplanet.app/doran/delete-account.html`
+- `https://nestplanet.app/doran/support.html`
 
 Play Console 앱 콘텐츠와 App Store Connect에 위 주소를 등록합니다.
 앱 안의 "이용약관"·"개인정보처리방침" 행도 이 주소로 연결합니다.
+
+### ★ 스토어에는 언어 없는 "중립 경로"를 등록합니다
+
+**등록 완료 (2026-08-11 확인)**
+
+| 콘솔 | 항목 | 등록된 값 |
+|---|---|---|
+| Play Console | 개인정보처리방침 | `/doran/privacy.html` |
+| Play Console | 데이터 안전 · 계정 삭제 | `/doran/delete-account.html` |
+| App Store Connect | — | **아직 비어 있음**(앱 미등록). 채울 때 Support URL은 `/doran/support.html` |
+
+나중에 `/doran/{lang}/`을 도입해도 **위 주소는 그대로 두고 리다이렉트로 흡수합니다.**
+스토어 URL을 바꾸면 심사 재제출을 유발할 수 있어, 그 축을 아예 고정하는 편이 쌉니다.
+즉 `/doran/privacy.html`은 영구적인 "스토어용 주소"이고, 정본은 `/doran/ko/privacy.html`이
+됩니다.
 
 계정 삭제 URL은 Play **데이터 안전** 양식이 별도로 요구하며, 앱 안에 삭제
 기능이 있어도 면제되지 않습니다. Apple은 반대로 **앱 내 삭제**를 요구하므로
@@ -86,6 +112,46 @@ Play Console 앱 콘텐츠와 App Store Connect에 위 주소를 등록합니다
 곧 첫 번째 사례가 됩니다 — 그때 앱의 `kLegalDocVersion`도 같은 날짜로 올리고,
 두 배포를 같은 릴리스에 묶으세요. (기존 이용자는 그 시점에 동의 화면을 한 번 더
 보게 되는데, 그게 재동의의 의도된 동작입니다.)
+
+### ★ 배포 순서는 출시 전후로 다릅니다
+
+"앱 먼저 → 웹 나중"은 **출시 전에만 맞는 규칙**입니다. 그대로 출시 후에 적용하면
+문서 자신의 조항과 충돌합니다 — `privacy.html` 10항과 `terms.html` 제3조는
+**"시행일 최소 7일 전 공지"** 를 규정하는데, 시행일이 이미 도래한 문서를 나중에
+올리는 것은 사전 공지가 아니기 때문입니다.
+
+| 시점 | 순서 | 이유 |
+|---|---|---|
+| **출시 전** | 웹·앱을 **한 릴리스로** 맞춘다 | 실사용자가 없어 재동의 자체가 발생하지 않는다. 7일 공지 의무의 대상(이용자)이 아직 없다 |
+| **출시 후** | ① 웹에 **미래 시행일**로 먼저 게시(7일 공지) → ② 그 날짜에 맞춰 앱 배포 | 사전 공지 조항을 지키면서, 앱이 새 버전을 요구하는 시점에 웹 문서가 이미 그 버전이 되어 있다 |
+
+출시 후 순서에서 ①과 ② 사이에는 "웹은 새 문서, 앱은 옛 버전 요구"인 창이 생깁니다.
+그동안 앱은 재동의를 띄우지 않는데, 그게 맞습니다 — 아직 시행 전이니까요.
+
+세 값은 언제나 같아야 합니다:
+**웹 문서 시행일 = `kLegalDocVersion` = `terms_acceptances.version`**
+
+> ⚠️ **지금 두 문서에는 시행일에 반영되지 않은 개정이 들어 있습니다** (2026-08-11).
+> `terms.html` 제16조·`privacy.html` 11항의 **언어 조항**, 그리고 제4조 문구 정정입니다.
+> 시행일은 의도적으로 2026년 8월 7일에 두었습니다 — 출시일에 앱과 함께 올릴 때
+> 이 개정들이 한꺼번에 시행됩니다. **날짜만 따로 고치지 마세요.**
+
+## 아직 안 한 것 (제출 후로 미룸)
+
+| 항목 | 내용 | 왜 나중인가 |
+|---|---|---|
+| `/doran/{lang}/` 전환 | `ko/`를 정본으로 두고 기존 경로는 `vercel.json`의 `redirects`(308)로 흡수 | 지금 앱은 5개 로케일이 모두 한국어 문서를 열고, 그게 **정상 동작**이다(doran 리포 `legal_urls.dart`의 `_localizedPathsLive = false`). 스토어 URL을 건드리는 작업이라 제출 직전은 피한다 |
+| en 번역 | 네 문서 | 위 전환이 선행. 사실 서술·절차 안내는 우리가 하고, **준거법·관할·면책·환불·연령 하한 근거는 검토가 필요하다**(한국 법률 용어는 영어에 1:1 대응이 없다) |
+| ja · zh · zh-Hant | 〃 | en 다음. **간체·번체는 합치지 않는다** — 앱도 그렇게 갈라 놨다 |
+
+전환 순서는 doran 리포 `lib/core/constants/legal_urls.dart` 헤더에 적혀 있습니다:
+웹에 `{lang}/`을 올리고 → 기존 경로를 리다이렉트로 살리고 → **그 다음에야** 앱의
+두 줄(`_availableLangs`, `_localizedPathsLive`)을 바꿉니다. 뒤집으면 앱이 없는
+경로를 엽니다.
+
+번역을 올릴 수 있는 것은 **언어 조항이 있기 때문입니다**(`terms.html` 제16조,
+`privacy.html` 11항). 이 조항이 없으면 번역본 하나하나가 독립된 계약서가 되어
+각 언어마다 법무 검수가 필요합니다.
 
 ## 문서를 고칠 때
 
