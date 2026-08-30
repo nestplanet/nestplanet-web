@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>네스트플래닛</title>
-<meta name="description" content="네스트플래닛은 도란과 알려도를 만듭니다. 멀리 있는 두 사람을 잇는 앱, 그리고 시험을 준비하는 사람을 위한 앱.">
+<meta name="description" content="네스트플래닛은 도란과 알려도, Pickle을 만듭니다. 멀리 있는 두 사람을 잇는 앱, 시험을 준비하는 사람을 위한 앱, 그리고 여행 가계부.">
 <link rel="stylesheet" href="style.css">
 <style>
   .hero { padding: 1rem 0 0; }
@@ -17,6 +17,22 @@
   }
   .product h2 { margin-top: 0; }
   .links { display: flex; gap: 1.25rem; flex-wrap: wrap; font-size: 0.9375rem; margin-top: 0.5rem; }
+  .product-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.875rem;
+  }
+  .product-head h2 { margin-bottom: 0; }
+  .app-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid var(--rule);
+    flex-shrink: 0;
+    display: block;
+  }
+  .stores { margin-top: 0.75rem; }
 </style>
 </head>
 <body>
@@ -47,6 +63,23 @@
       <a href="/allyeodo/">알려도 안내</a>
       <a href="/allyeodo/support.html">고객센터</a>
       <a href="/allyeodo/privacy.html">개인정보처리방침</a>
+    </div>
+  </section>
+
+  <section class="product">
+    <div class="product-head">
+      <img class="app-icon" src="/pickle/icon.png" alt="" width="48" height="48">
+      <h2>Pickle</h2>
+    </div>
+    <p>해외여행에서 쓴 돈을 통화별로 기록하는 여행 가계부입니다. 영수증을 찍으면 금액을 자동으로 읽어 넣고, 그날의 환율로 환산해 주며, 함께 간 사람들과의 정산까지 한 곳에서 끝냅니다.</p>
+    <div class="links">
+      <a href="/pickle/support.html">고객센터</a>
+      <a href="/pickle/privacy.html">개인정보처리방침</a>
+      <a href="/pickle/delete-account.html">계정 삭제 요청</a>
+    </div>
+    <div class="links stores">
+      <a href="https://play.google.com/store/apps/details?id=com.nestplanet.pickle">Google Play</a>
+      <a href="https://apps.apple.com/app/id6776942520">App Store</a>
     </div>
   </section>
 
