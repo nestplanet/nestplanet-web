@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>고객센터 — Pickle</title>
+<meta name="description" content="Pickle 이용 중 궁금한 점과 문의처를 안내합니다. 코인과 영수증 OCR, 구독 해지, 계정 삭제, 환율 정보.">
+<link rel="stylesheet" href="../style.css">
+<style>
+  .langbar {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  .langbar button {
+    font: inherit;
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: var(--ink-soft);
+    background: transparent;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 0.25rem 0.75rem;
+    cursor: pointer;
+  }
+  .langbar button:hover { border-color: var(--ink-faint); }
+  .langbar button[aria-pressed="true"] {
+    color: var(--accent);
+    border-color: var(--accent);
+    font-weight: 600;
+  }
+  .langbar button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .lang-section { display: none; }
+  .lang-section.active { display: block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="langbar">
+  <button type="button" data-lang="ko" aria-pressed="true" onclick="setLang('ko')">한국어</button>
+  <button type="button" data-lang="en" aria-pressed="false" onclick="setLang('en')">English</button>
+</div>
+
+<div class="lang-section active" id="ko">
+
+<header class="doc">
+  <p class="eyebrow"><a href="/">네스트플래닛</a> · Pickle</p>
+  <h1>고객센터</h1>
+  <p class="meta">최종 업데이트 2026년 8월 30일</p>
+</header>
+
+<p>Pickle을 쓰시다 막히는 부분이 있으면 아래를 먼저 확인해 주세요. 찾는 답이 없으면 언제든 메일로 문의해 주시면 됩니다.</p>
+
+<h2>1. 문의</h2>
+
+<ul>
+  <li>이메일 — <a href="mailto:nestplanet.official@gmail.com?subject=%5BPickle%5D%20%EB%AC%B8%EC%9D%98">nestplanet.official@gmail.com</a></li>
+  <li>담당 — 장유진 (네스트플래닛 대표)</li>
+  <li>회신까지 — <strong>영업일 기준 2~3일</strong></li>
+</ul>
+
+<p>앱 안에서도 <strong>마이페이지 → 고객센터</strong>로 바로 보내실 수 있습니다. 메일로 문의하실 때는 <strong>가입에 사용한 이메일 주소</strong>와 <strong>사용 중인 기기</strong>(Android / iPhone)를 함께 적어 주시면 더 빨리 확인할 수 있습니다. 화면이 이상하게 보이는 경우에는 그 화면을 캡처해 첨부해 주세요.</p>
+
+<div class="callout">
+계정 삭제 요청은 처리 절차와 기간이 따로 정해져 있습니다. <a href="delete-account.html">계정 삭제 요청</a> 페이지를 확인해 주세요.
+</div>
+
+<h2>2. 자주 묻는 질문</h2>
+
+<h3>코인은 어디에 쓰나요?</h3>
+<p>코인은 <strong>영수증 OCR 자동 인식</strong>에 사용합니다. 영수증을 촬영하거나 사진첩에서 고르면 금액·상품명·세금을 자동으로 읽어 거래에 채워 넣는 기능이며, <strong>코인 1회가 OCR 1회</strong>에 해당합니다. 얻는 방법은 세 가지입니다.</p>
+<ul>
+  <li>광고 시청 — 영상 광고를 보면 <strong>2회</strong>가 충전됩니다</li>
+  <li>구매 — 앱 안에서 코인을 직접 구매하실 수 있습니다</li>
+  <li>프리미엄 구독 — 구독 중에는 <strong>OCR을 무제한</strong>으로 쓰고 광고도 표시되지 않습니다</li>
+</ul>
+<p>남은 코인과 사용·충전 기록은 <strong>마이페이지 → 내 코인</strong>에서 확인하실 수 있습니다. OCR 결과가 부정확할 수 있어 저장 전에 금액과 통화를 한 번 확인해 주세요. 직접 입력으로 언제든 고치실 수 있습니다.</p>
+
+<h3>구독은 어떻게 해지하나요?</h3>
+<p><strong>구독 해지는 결제하신 스토어에서 하셔야 합니다.</strong> Pickle 앱 안에서는 해지할 수 없고, 회사가 스토어를 대신해 해지해 드릴 수도 없습니다.</p>
+<ul>
+  <li>Android — Google Play 앱 → 프로필 → 결제 및 정기 결제 → 정기 결제</li>
+  <li>iPhone·iPad — 설정 → 본인 이름 → 구독</li>
+</ul>
+<p>구독은 해지하지 않으면 자동으로 갱신됩니다. 갱신을 원하지 않으시면 <strong>다음 결제일 최소 24시간 전</strong>에 해지해 주세요. 해지해도 이미 결제한 기간이 끝날 때까지는 혜택이 유지됩니다. 환불은 각 스토어의 정책을 따르며 스토어에 직접 요청하셔야 합니다.</p>
+
+<h3>계정을 삭제하고 싶어요.</h3>
+<p>앱에서 <strong>마이페이지 → 프로필 수정 → 회원탈퇴</strong>로 직접 삭제하실 수 있습니다. 탈퇴하시면 <strong>30일의 유예 기간</strong>이 시작되고, 그 안에 같은 계정으로 다시 로그인하시면 데이터가 그대로 복구됩니다. 30일이 지나면 영구 삭제되어 되돌릴 수 없습니다.</p>
+<p>앱을 이미 지우셨거나 로그인할 수 없다면 <a href="delete-account.html">계정 삭제 요청</a> 페이지의 절차를 따라 주세요. <strong>계정을 삭제해도 구독은 자동으로 해지되지 않으니</strong> 구독 중이시라면 위 안내대로 먼저 해지해 주세요.</p>
+
+<h3>환율은 어디에서 가져오나요?</h3>
+<p>환율은 <strong>Open Exchange Rates</strong>에서 받아 옵니다. 미국 달러(USD)를 기준으로 받은 값을 통화별로 환산해 앱에 표시합니다.</p>
+<p>이 환율은 <strong>참고용 시장 환율</strong>이라, 실제로 카드사나 은행이 결제에 적용하는 환율과는 차이가 있습니다. 카드 결제에는 카드사 수수료와 해외 이용 수수료가 더해지고 적용 시점도 다릅니다. 정확한 정산 금액은 카드사 명세서를 확인해 주세요.</p>
+<p>거래를 등록할 때 그 시점의 환율이 함께 저장되므로, 나중에 환율이 바뀌어도 이미 기록한 거래의 환산 금액은 달라지지 않습니다. 거래별 환율은 직접 고치실 수도 있습니다.</p>
+
+<h2>3. 약관과 개인정보</h2>
+
+<ul>
+  <li><a href="privacy.html">개인정보처리방침</a></li>
+  <li><a href="delete-account.html">계정 삭제 요청</a></li>
+</ul>
+
+<p>이용약관은 앱 안에서 <strong>마이페이지 → 이용 약관 및 동의 사항</strong>으로 확인하실 수 있습니다.</p>
+
+<footer class="doc">
+  <dl>
+    <dt>상호</dt><dd>네스트플래닛</dd>
+    <dt>대표</dt><dd>장유진</dd>
+    <dt>사업자등록번호</dt><dd>165-67-00635</dd>
+    <dt>통신판매업신고</dt><dd>제2026-부산진-0708호</dd>
+    <dt>주소</dt><dd>부산광역시 부산진구 동평로 162, 1동 108호 (부암동, 서면 동일파크스위트 3차)</dd>
+    <dt>문의</dt><dd><a href="mailto:nestplanet.official@gmail.com">nestplanet.official@gmail.com</a></dd>
+  </dl>
+</footer>
+
+</div>
+
+<div class="lang-section" id="en">
+
+<header class="doc">
+  <p class="eyebrow"><a href="/">Nest Planet</a> · Pickle</p>
+  <h1>Support</h1>
+  <p class="meta">Last updated August 30, 2026</p>
+</header>
+
+<p>If something in Pickle isn't working the way you expect, start here. If you can't find your answer, email us any time.</p>
+
+<h2>1. Contact us</h2>
+
+<ul>
+  <li>Email — <a href="mailto:nestplanet.official@gmail.com?subject=%5BPickle%5D%20Support">nestplanet.official@gmail.com</a></li>
+  <li>Contact — Yujin Jang (Representative, Nest Planet)</li>
+  <li>Response time — <strong>2–3 business days</strong></li>
+</ul>
+
+<p>You can also write to us from inside the app under <strong>My page → Support</strong>. When you email, please include <strong>the address you signed up with</strong> and <strong>the device you're using</strong> (Android or iPhone) so we can look into it faster. If something looks wrong on screen, a screenshot helps.</p>
+
+<div class="callout">
+Account deletion follows its own procedure and timeline. Please see the <a href="delete-account.html">Delete your account</a> page.
+</div>
+
+<h2>2. Frequently asked questions</h2>
+
+<h3>What are coins used for?</h3>
+<p>Coins are used for <strong>automatic receipt scanning (OCR)</strong>. Photograph a receipt or pick one from your library, and Pickle reads the amount, item names, and tax, then fills in the transaction for you. <strong>One coin covers one scan.</strong> There are three ways to get coins.</p>
+<ul>
+  <li>Watch an ad — a video ad adds <strong>2 scans</strong></li>
+  <li>Buy them — coins can be purchased in the app</li>
+  <li>Premium subscription — <strong>unlimited OCR</strong> with no ads while your subscription is active</li>
+</ul>
+<p>Your balance and your usage and top-up history are under <strong>My page → My Coins</strong>. OCR results can be imperfect, so please check the amount and currency before saving. You can always correct them by hand.</p>
+
+<h3>How do I cancel my subscription?</h3>
+<p><strong>Subscriptions must be cancelled through the store you paid with.</strong> Pickle cannot cancel a subscription from inside the app, and we cannot cancel it on the store's behalf.</p>
+<ul>
+  <li>Android — Google Play app → profile → Payments &amp; subscriptions → Subscriptions</li>
+  <li>iPhone / iPad — Settings → your name → Subscriptions</li>
+</ul>
+<p>Subscriptions renew automatically unless cancelled. To avoid renewal, cancel at least <strong>24 hours before your next billing date</strong>. After cancelling you keep your benefits until the period you already paid for ends. Refunds follow each store's policy and must be requested from the store directly.</p>
+
+<h3>How do I delete my account?</h3>
+<p>You can delete it yourself in the app under <strong>My page → Edit profile → Delete account</strong>. Deletion starts a <strong>30-day grace period</strong> — if you sign in again with the same account within those 30 days, your data is restored exactly as it was. After 30 days everything is permanently deleted and cannot be recovered.</p>
+<p>If you have already removed the app or cannot sign in, follow the steps on the <a href="delete-account.html">Delete your account</a> page. <strong>Deleting your account does not cancel an active subscription</strong> — please cancel it first using the steps above.</p>
+
+<h3>Where do the exchange rates come from?</h3>
+<p>Rates come from <strong>Open Exchange Rates</strong>. We receive them against the US dollar (USD) and convert to each currency for display in the app.</p>
+<p>These are <strong>reference market rates</strong>, so they differ from the rate your card issuer or bank actually applies. Card payments add issuer margins and foreign transaction fees, and are applied at a different moment. For the exact settled amount, check your card statement.</p>
+<p>When you record a transaction, the rate at that moment is saved with it — so later rate changes never alter the converted amount of a transaction you already entered. You can also edit the rate on an individual transaction.</p>
+
+<h2>3. Legal</h2>
+
+<ul>
+  <li><a href="privacy.html">Privacy Policy</a></li>
+  <li><a href="delete-account.html">Delete your account</a></li>
+</ul>
+
+<p>The Terms of Service are available in the app under <strong>My page → Terms &amp; Conditions</strong>.</p>
+
+<footer class="doc">
+  <dl>
+    <dt>Company</dt><dd>Nest Planet</dd>
+    <dt>Representative</dt><dd>Yujin Jang</dd>
+    <dt>Business reg. no.</dt><dd>165-67-00635</dd>
+    <dt>E-commerce reg. no.</dt><dd>2026-Busanjin-0708</dd>
+    <dt>Address</dt><dd>Unit 108, Bldg 1, 162 Dongpyeong-ro, Busanjin-gu, Busan, Republic of Korea</dd>
+    <dt>Contact</dt><dd><a href="mailto:nestplanet.official@gmail.com">nestplanet.official@gmail.com</a></dd>
+  </dl>
+</footer>
+
+</div>
+
+</div>
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(function (el) {
+      el.classList.toggle('active', el.id === lang);
+    });
+    document.querySelectorAll('.langbar button').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+    });
+    document.documentElement.lang = lang;
+  }
+
+  (function () {
+    var q = new URLSearchParams(location.search).get('lang');
+    var want = q || (location.hash === '#en' ? 'en' : null);
+    if (!want) {
+      want = (navigator.language || 'ko').toLowerCase().indexOf('ko') === 0 ? 'ko' : 'en';
+    }
+    setLang(want === 'en' ? 'en' : 'ko');
+  })();
+</script>
+</body>
+</html>
