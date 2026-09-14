@@ -13,7 +13,8 @@ doran/privacy.html          도란 개인정보처리방침
 doran/terms.html            도란 이용약관
 doran/delete-account.html   도란 계정 삭제 요청 (Play 필수)
 allyeodo/index.html         알려도 허브 (두 문서로 가는 링크)
-allyeodo/support.html       알려도 고객센터 (Apple 1.2 · ASC Support URL)
+allyeodo/support.html       알려도 한국사 고객센터 (Apple 1.2 · ASC Support URL)
+allyeodo/driver/support.html 알려도 운전면허 고객센터
 allyeodo/privacy.html       알려도 시리즈 공통 개인정보처리방침
 ```
 
@@ -32,7 +33,15 @@ Vercel에 리포를 연결하면 자동 배포됩니다. Framework Preset은 **O
 
 > ⚠️ **`cleanUrls`를 켜지 마세요.** Vercel의 `cleanUrls: true`는 `/x.html`을 `/x`로
 > **308 리다이렉트**합니다 — 스토어에 등록한 URL의 모양이 바뀝니다. `trailingSlash`도
-> 기본값을 유지합니다. 지금은 `vercel.json` 자체가 없고, 그게 의도된 상태입니다.
+> 기본값을 유지합니다. `vercel.json`에는 **`rewrites`만** 둡니다(2026-09-14 추가).
+>
+> | source | destination | 이유 |
+> |---|---|---|
+> | `/allyeodo/hangugsa/support.html` | `/allyeodo/support.html` | 앱별 경로 규칙상 한국사 고객센터의 자리. 기존 경로는 스토어 등록 URL이라 옮기지 않고, 새 경로가 같은 내용을 200으로 보여 준다(리다이렉트 아님) |
+>
+> ⚠️ **rewrite는 URL 깊이를 바꾸므로 `allyeodo/` 아래 HTML의 `href`·`src`는 전부 루트 기준
+> 절대 경로(`/style.css`, `/allyeodo/privacy.html`)로 씁니다.** 상대 경로(`../style.css`)는
+> `/allyeodo/hangugsa/support.html`에서 `/allyeodo/style.css`로 풀려 CSS가 빠집니다.
 
 > ⚠️ DNS를 바꿀 때 Resend 레코드를 지우지 마세요.
 > `send` 서브도메인의 MX·TXT와 `resend._domainkey` TXT는 이메일 발송에
@@ -46,7 +55,8 @@ Vercel에 리포를 연결하면 자동 배포됩니다. Framework Preset은 **O
 - `https://nestplanet.app/doran/delete-account.html`
 - `https://nestplanet.app/doran/support.html`
 - `https://nestplanet.app/allyeodo/privacy.html`
-- `https://nestplanet.app/allyeodo/support.html`
+- `https://nestplanet.app/allyeodo/support.html` (한국사)
+- `https://nestplanet.app/allyeodo/driver/support.html` (운전면허)
 
 Play Console 앱 콘텐츠와 App Store Connect에 위 주소를 등록합니다.
 앱 안의 "이용약관"·"개인정보처리방침" 행도 이 주소로 연결합니다.
@@ -317,6 +327,29 @@ FAQ 문항 중 **"부적절한 광고가 표시돼요"** 는 방침 9항 마지�
 
 > ⚠️ **출시 후에는 이 방식이 통하지 않습니다.** 그때부터는 **미래 시행일로 먼저
 > 게시**하고 7일을 기다려야 합니다.
+
+### 운전면허 추가 — 방침 개정 예고 (2026-09-14 게시, 시행일 2026-09-21)
+
+| 고친 곳 | 지금 |
+|---|---|
+| 방침 1항 표 | `알려도 — 운전면허` 행 추가 |
+| 방침 9항 첫 문단 | "알려도가 다루는 시험은 응시 연령에 제한이 없어"는 운전면허에서 거짓 → "응시 연령은 시험마다 다르지만 앱은 나이를 묻지 않는다" |
+| 방침 상단 | `개정 예정` 고지 한 줄 (12항의 7일 전 고지) |
+| 방침 14항 (신설) | 개정 이력 표 |
+| `allyeodo/driver/support.html` (신설) | 운전면허 고객센터. 음성 읽기 FAQ 없음(driver `ttsEnabled: false`). 메일 제목은 앱과 같은 `[알려도 - 운전면허] 문의`(`appDisplayName`) |
+
+> ⚠️ **출시 후 첫 개정입니다 — 위 "시행일을 오늘로 당겨도 되는 이유"가 통하지 않습니다.**
+> 9월 14일까지 배포해야 7일 고지가 성립합니다. **9월 21일에** 상단 시행일을
+> `2026년 9월 21일`로 올리고 `개정 예정` 줄(과 그 위 주석)을 지웁니다.
+
+> ★ **고객센터는 이제 앱별입니다.** "같은 표가 세 곳" 규칙은 **두 곳**(`privacy.html` 1항,
+> `index.html` "시리즈" 절)으로 줄었습니다. 한국사 `support.html`은 스토어 등록 URL이라
+> 경로·내용을 그대로 두었습니다(1항 표·"시리즈 공통" callout 포함).
+>
+> 운전면허 FAQ가 전제하는 구현 (allyeodo 리포 `driver_cert_config.dart`):
+> 모의고사 20회·40문항·40분 · 1종(보통·대형·특수) 70점 / 2종 보통 60점 · 동영상형 미제공으로
+> 98점 만점 · 출처 `한국도로교통공단 학과시험 문제은행` 2026-03-09 · 이미지 실패 시
+> `다시 시도`, 안전표지형만 `이 문제 건너뛰기`.
 
 ### 문서와 구현이 어긋나면 안 되는 지점
 

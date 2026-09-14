@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/allyeodo/hangugsa/support.html", "destination": "/allyeodo/support.html" }
+  ]
+}
