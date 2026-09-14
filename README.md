@@ -38,6 +38,10 @@ Vercel에 리포를 연결하면 자동 배포됩니다. Framework Preset은 **O
 > | source | destination | 이유 |
 > |---|---|---|
 > | `/allyeodo/hangugsa/support.html` | `/allyeodo/support.html` | 앱별 경로 규칙상 한국사 고객센터의 자리. 기존 경로는 스토어 등록 URL이라 옮기지 않고, 새 경로가 같은 내용을 200으로 보여 준다(리다이렉트 아님) |
+>
+> ⚠️ **rewrite는 URL 깊이를 바꾸므로 `allyeodo/` 아래 HTML의 `href`·`src`는 전부 루트 기준
+> 절대 경로(`/style.css`, `/allyeodo/privacy.html`)로 씁니다.** 상대 경로(`../style.css`)는
+> `/allyeodo/hangugsa/support.html`에서 `/allyeodo/style.css`로 풀려 CSS가 빠집니다.
 
 > ⚠️ DNS를 바꿀 때 Resend 레코드를 지우지 마세요.
 > `send` 서브도메인의 MX·TXT와 `resend._domainkey` TXT는 이메일 발송에
