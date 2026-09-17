@@ -15,7 +15,9 @@ doran/delete-account.html   도란 계정 삭제 요청 (Play 필수)
 allyeodo/index.html         알려도 허브 (두 문서로 가는 링크)
 allyeodo/support.html       알려도 한국사 고객센터 (Apple 1.2 · ASC Support URL)
 allyeodo/driver/support.html 알려도 운전면허 고객센터
+allyeodo/driver-global/support.html 알려도 운전면허 외국어판 고객센터 (?lang=en|zh|vi)
 allyeodo/privacy.html       알려도 시리즈 공통 개인정보처리방침
+allyeodo/privacy-en.html    〃 영어 전문 번역 (스토어·AdMob GDPR 등록용)
 ```
 
 `doran/index.html`은 소개 페이지가 아니라 **허브**입니다. 만드는 이유는 셋입니다 —
@@ -57,6 +59,8 @@ Vercel에 리포를 연결하면 자동 배포됩니다. Framework Preset은 **O
 - `https://nestplanet.app/allyeodo/privacy.html`
 - `https://nestplanet.app/allyeodo/support.html` (한국사)
 - `https://nestplanet.app/allyeodo/driver/support.html` (운전면허)
+- `https://nestplanet.app/allyeodo/driver-global/support.html?lang=en|zh|vi` (운전면허 외국어판)
+- `https://nestplanet.app/allyeodo/privacy-en.html` (운전면허 외국어판 스토어·AdMob GDPR 방침 URL)
 
 Play Console 앱 콘텐츠와 App Store Connect에 위 주소를 등록합니다.
 앱 안의 "이용약관"·"개인정보처리방침" 행도 이 주소로 연결합니다.
@@ -350,6 +354,22 @@ FAQ 문항 중 **"부적절한 광고가 표시돼요"** 는 방침 9항 마지�
 > 모의고사 20회·40문항·40분 · 1종(보통·대형·특수) 70점 / 2종 보통 60점 · 동영상형 미제공으로
 > 98점 만점 · 출처 `한국도로교통공단 학과시험 문제은행` 2026-03-09 · 이미지 실패 시
 > `다시 시도`, 안전표지형만 `이 문제 건너뛰기`.
+
+### 운전면허 외국어판 추가 — 방침 개정 예고 (2026-09-17 게시, 시행일 2026-09-24)
+
+초안은 allyeodo 리포 `docs/web/` (support.html · privacy-driver-global-addendum.md).
+
+| 고친 곳 | 지금 |
+|---|---|
+| 방침 1항 표 | `알려도 — 운전면허 외국어판` 행 추가 |
+| 방침 1항 소제목 (신설) | 외국어판 추가 사항 4개(언어 설정 기기 저장·번역 조회·전면 광고 빈도 기록·UMP). **항 번호를 밀지 않으려고** 새 항이 아니라 1항 아래 h3 |
+| 방침 13항 소제목 (신설) | 영·중·베 요약 (한국어 우선) |
+| 방침 상단·14항 | `개정 예정` 고지 한 줄 · 개정 이력 한 줄 |
+| `allyeodo/privacy-en.html` (신설) | 한국어본 **전문 번역**. 항 번호 동일. **한국어본을 고치면 같은 커밋에서 함께 고칩니다** |
+| `allyeodo/driver-global/support.html` (신설) | 한 파일에 세 언어, `?lang=` 으로 전환(없거나 모르는 값은 en). title·description·`html lang` 도 JS 로 바뀜. 방침 링크는 영어판 |
+
+> ⚠️ **9월 24일에** 상단 시행일을 `2026년 9월 24일`로 올리고 두 `개정 예정` 줄을 지웁니다
+> (9월 21일 작업과 함께 영어판 상단도 같이).
 
 ### 문서와 구현이 어긋나면 안 되는 지점
 
