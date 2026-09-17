@@ -26,6 +26,27 @@
     color: var(--ink-soft);
     margin-top: 0.125rem;
   }
+  .app-card {
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+  }
+  .app-card-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.625rem; }
+  .app-card-head h3 { margin: 0; color: var(--ink); }
+  .app-icon { width: 48px; height: 48px; border-radius: 10px; border: 1px solid var(--rule); flex-shrink: 0; display: block; }
+  .app-card p { margin-bottom: 0.75rem; }
+  .app-card .links { display: flex; gap: 1.25rem; flex-wrap: wrap; font-size: 0.9375rem; margin-bottom: 0.875rem; }
+  .store-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .store-btn {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    color: var(--ink-faint);
+    cursor: default;
+  }
 </style>
 </head>
 <body>
@@ -42,7 +63,9 @@
 <ul class="nav">
   <li><a href="/allyeodo/support.html">고객센터 — 한국사능력검정시험<span class="sub">문의처와 자주 묻는 질문</span></a></li>
   <li><a href="/allyeodo/driver/support.html">고객센터 — 운전면허<span class="sub">문의처와 자주 묻는 질문, 모의고사와 합격선</span></a></li>
+  <li><a href="/allyeodo/driver-global/support.html">고객센터 — 운전면허 외국어판<span class="sub">Support · English · 简体中文 · Tiếng Việt</span></a></li>
   <li><a href="/allyeodo/privacy.html">개인정보처리방침<span class="sub">수집하지 않는 정보, 기기 저장, 광고 · 시리즈 공통</span></a></li>
+  <li><a href="/allyeodo/privacy-en.html" hreflang="en">Privacy Policy (English)<span class="sub">개인정보처리방침 영어 번역본</span></a></li>
 </ul>
 
 <h2>시리즈</h2>
@@ -55,8 +78,27 @@
   <tbody>
     <tr><td>알려도 — 한국사능력검정시험 심화 기출문제</td><td>한국사능력검정시험 심화 등급 기출문제 학습</td></tr>
     <tr><td>알려도 — 운전면허</td><td>운전면허 학과시험(1종·2종 보통) 문제은행 학습</td></tr>
+    <tr><td>알려도 — 운전면허 외국어판<br>(Allyeodo Korean Driving Test / Allyeodo 韩国驾照考试 / Allyeodo Thi bằng lái Hàn Quốc)</td><td>운전면허 학과시험 문제은행 학습 (영어·중국어 간체·베트남어)</td></tr>
   </tbody>
 </table>
+
+<!-- 스토어 출시 후 store-btn 의 span 을 a 로 바꾸고 href 를 채운다.
+     Android 패키지는 com.nestplanet.allyeodo.driverglobal, iOS 는 App Store 등록 후 숫자 ID. -->
+<div class="app-card">
+  <div class="app-card-head">
+    <img class="app-icon" src="/allyeodo/driver-global/icon.png" alt="" width="48" height="48">
+    <h3 lang="en">Allyeodo Korean Driving Test</h3>
+  </div>
+  <p>외국인을 위한 한국 운전면허 학과시험 문제은행 학습 — 영어·중국어 간체·베트남어</p>
+  <div class="links">
+    <a href="/allyeodo/driver-global/support.html">Support</a>
+    <a href="/allyeodo/privacy-en.html">Privacy Policy</a>
+  </div>
+  <div class="store-btns">
+    <span class="store-btn" aria-disabled="true">Google Play · 출시 예정</span>
+    <span class="store-btn" aria-disabled="true">App Store · 출시 예정</span>
+  </div>
+</div>
 
 <!-- 스토어 출시 후 주석을 풀고 링크를 채운다.
      운전면허 Android 패키지는 com.nestplanet.allyeodo.driver, iOS 는 App Store 등록 후 숫자 ID.
